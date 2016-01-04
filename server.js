@@ -7,12 +7,12 @@ var readerTwo = fs.readFileSync(fileNameTwo, 'utf8')
 
 
 function handleRequest (req, res) {
-  if (req.url === '/about') {
+  if (req.url === '/about.html') {
     res.setHeader('Content-Type','text/html')
     res.statusCode = 200;
     res.write(reader);
     res.end()
-  } else if (req.url === '/faq') {
+  } else if (req.url === '/faq.html') {
     res.setHeader('Content-Type','text/html')
     res.statusCode = 200;
     res.write(readerTwo);
