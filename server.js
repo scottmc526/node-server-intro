@@ -1,22 +1,29 @@
 var http = require('http');
 var fs = require('fs');
-var fileName = './about.html'
-var fileNameTwo = './faq.html'
-var reader = fs.readFileSync(fileName, 'utf8')
-var readerTwo = fs.readFileSync(fileNameTwo, 'utf8')
-
 
 function handleRequest (req, res) {
   if (req.url === '/about.html') {
-    res.setHeader('Content-Type','text/html')
-    res.statusCode = 200;
-    res.write(reader);
-    res.end()
+    fs.readFile('./about.html', function (err, data){
+      if (err) {
+        console.log('no');
+      } else {
+        res.setHeader('Content-Type','text/html')
+        res.statusCode = 200;
+        res.write(data);
+        res.end()
+      }
+    })
   } else if (req.url === '/faq.html') {
-    res.setHeader('Content-Type','text/html')
-    res.statusCode = 200;
-    res.write(readerTwo);
-    res.end()
+    fs.readFile('./faq.html', function (err, data){
+      if (err) {
+        console.log('no');
+      } else {
+        res.setHeader('Content-Type','text/html')
+        res.statusCode = 200;
+        res.write(data);
+        res.end()
+      }
+    })
   }
   else {
     res.setHeader('Content-Type','text/html')
