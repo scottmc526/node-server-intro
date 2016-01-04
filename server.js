@@ -21,7 +21,7 @@ function handleRequest (req, res) {
   else {
     res.setHeader('Content-Type','text/html')
     res.statusCode = 200;
-    res.write('<h1>This is not a filepath</h1')
+    res.write("<img src='https://http.cat/404'>")
     res.end()
   }
 }
